@@ -10,9 +10,9 @@ const signupUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        console.log(email, password);
+        // console.log(email, password);
         const user = await User.signup(email, password)
-        console.log(user);
+        // console.log(user);
         res.status(200).json({ email, user })
         return
     } catch (error) {
@@ -20,8 +20,21 @@ const signupUser = async (req, res) => {
     }
 }
 
+const fetchUsers = async (req, res) => {
+    try {
+        // console.log(email, password);
+        const user = await User.find()
+        // console.log(user);
+        res.status(200).json({ user })
+        return
+    } catch (error) {
+        res.status(400).json(error.message)
+    }
+
+}
 
 module.exports = {
     signupUser,
-    loginUser
+    loginUser,
+    fetchUsers
 }
