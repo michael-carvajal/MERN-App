@@ -7,11 +7,12 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        validate:[ (x) => x.includes('@'), 'Email must include "@"']
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
 
 })
