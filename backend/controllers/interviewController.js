@@ -14,6 +14,13 @@ const postInterview = async (req, res) => {
     }
 }
 
+const fetchInterviews = async (req, res) => {
+    const allInterviews = await Interview.find();
+
+    res.status(200).json(allInterviews)
+}
+
 module.exports = {
-    postInterview
+    postInterview,
+    fetchInterviews
 }
