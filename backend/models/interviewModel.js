@@ -7,6 +7,10 @@ const interviewSchema = new Schema({
         type: String,
         required: true,
     },
+    authorId: {
+        type: Number,
+        required: true,
+    },
     interviewee: {
         type: String,
         required: true
