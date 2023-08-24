@@ -1,3 +1,4 @@
+const { request } = require('express');
 const User = require('../models/userModel')
 
 // login user
@@ -34,11 +35,16 @@ const fetchUsers = async (req, res) => {
 }
 
 const findOneUser = async (req, res) => {
-    const user =  await User.findById()
+    const { userId } = req.params;
+    const user = await User.findById(userId)
+
+    res.status(200).json({user})
 }
 
 module.exports = {
     signupUser,
     loginUser,
-    fetchUsers
+    fetchUsers,
+    findOneUser
+
 }

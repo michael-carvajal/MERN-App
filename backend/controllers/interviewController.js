@@ -7,7 +7,7 @@ const postInterview = async (req, res) => {
     try {
         const newInterview = await Interview.create({ ...req.body })
         console.log(newInterview);
-        const author = await User.find({_id : newInterview.auhtorId})
+        const author = await User.findById(newInterview.authorId)
         res.status(200).json({ newInterview,  author })
 
     } catch (error) {

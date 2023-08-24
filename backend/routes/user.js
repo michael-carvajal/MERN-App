@@ -1,12 +1,10 @@
 const express = require('express');
-const { loginUser, signupUser, fetchUsers } = require('../controllers/userController');
+const { loginUser, signupUser, fetchUsers, findOneUser } = require('../controllers/userController');
 
 // controller function
 
 const router = express.Router();
 
-// get all users
-router.get('', fetchUsers)
 
 // login route
 router.post('/login', loginUser)
@@ -15,6 +13,9 @@ router.post('/login', loginUser)
 router.post('/signup', signupUser)
 
 // find one user
-router.get('/:userId', )
+router.get('/:userId', findOneUser )
+
+// get all users
+router.get('', fetchUsers)
 
 module.exports = router
