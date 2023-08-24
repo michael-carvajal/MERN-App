@@ -1,10 +1,15 @@
-const { request } = require('express');
+const  jwt = require('jsonwebtoken');
 const User = require('../models/userModel')
+
+const createToken = (_id) => {
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn : '3d'})
+}
+
 
 // login user
 
 const loginUser = async (req, res) => {
-    res.json({mssg: 'login user'})
+    res.json({ mssg: 'login user' })
 }
 
 const signupUser = async (req, res) => {
@@ -13,8 +18,9 @@ const signupUser = async (req, res) => {
     try {
         // console.log(email, password);
         const user = await User.signup(email, password)
-        // console.log(user);
-        res.status(200).json({ email, user })
+        console.log(user);
+        const token = createToken(user._id)
+        res.status(200).json({ email, token })
         return
     } catch (error) {
         res.status(400).json(error.message)
@@ -38,7 +44,7 @@ const findOneUser = async (req, res) => {
     const { userId } = req.params;
     const user = await User.findById(userId)
 
-    res.status(200).json({user})
+    res.status(200).json({ user })
 }
 
 module.exports = {
