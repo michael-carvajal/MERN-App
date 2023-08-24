@@ -33,6 +33,10 @@ const fetchUsers = async (req, res) => {
 
 }
 
+const findOneUser = async (req, res) => {
+    const user =  await User.findById()
+}
+
 module.exports = {
     signupUser,
     loginUser,

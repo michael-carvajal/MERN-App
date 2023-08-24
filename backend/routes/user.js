@@ -14,4 +14,7 @@ router.post('/login', loginUser)
 // signup route
 router.post('/signup', signupUser)
 
+// find one user
+router.get('/:userId', )
+
 module.exports = router

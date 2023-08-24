@@ -8,7 +8,7 @@ const interviewSchema = new Schema({
         required: true,
     },
     authorId: {
-        type: Number,
+        type: Schema.Types.ObjectId,
         required: true,
     },
     interviewee: {

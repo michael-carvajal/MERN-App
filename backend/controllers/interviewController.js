@@ -1,12 +1,14 @@
 const Interview = require('../models/interviewModel');
+const User = require('../models/userModel');
 
 // Create interview
 
 const postInterview = async (req, res) => {
     try {
         const newInterview = await Interview.create({ ...req.body })
-
-        res.status(200).json({ newInterview })
+        console.log(newInterview);
+        const author = await User.find({_id : newInterview.auhtorId})
+        res.status(200).json({ newInterview,  author })
 
     } catch (error) {
         res.status(400).json({ error : error.message })
