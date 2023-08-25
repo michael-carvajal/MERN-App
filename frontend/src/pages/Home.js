@@ -1,6 +1,6 @@
 import { useEffect }from 'react'
 import { useInterviewsContext } from "../hooks/useInterviewsContext"
-
+import '../styles/Home.css'
 // components
 // import WorkoutDetails from '../components/WorkoutDetails'
 // import WorkoutForm from '../components/WorkoutForm'
@@ -20,7 +20,10 @@ const Home = () => {
 
     fetchInterviews()
   }, [dispatch])
-console.log(interviews);
+
+  if (!interviews) {
+    return <h1>Loading....</h1>
+  }
   return (
     <div className="home">
       {/* <div className="workouts">
@@ -30,14 +33,14 @@ console.log(interviews);
       </div>
       <WorkoutForm /> */}
       <div className='interviews-container'>
-        {interviews.map((interview, index) => {
+        {interviews?.map((interview, index) => {
           return (
-            <div className='interview'>
-              <p>{interview.title}</p>
-              <p>{interview.interviewer}</p>
-              <p>{interview.interviewee}</p>
-              <p>{interview.date}</p>
-              <p>{interview.content}</p>
+            <div key={`interview-key-${index}`} className='interview'>
+              <p> Title: {interview.title}</p>
+              <p> Interviewer: {interview.interviewer}</p>
+              <p> Interviewee: {interview.interviewee}</p>
+              <p> Date: {interview.date}</p>
+              <pre> Content: <br/> {interview.content}</pre>
             </div>
           )
         })}
