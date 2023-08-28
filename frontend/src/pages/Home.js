@@ -8,13 +8,14 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 const Home = () => {
   const {interviews, dispatch} = useInterviewsContext()
-  const user = useAuthContext()
+  const {user} = useAuthContext()
 
   useEffect(() => {
+    console.log('inside use effect');
     const fetchInterviews = async () => {
       const response = await fetch('/api/interview', {
         headers: {
-          'Authorization' : `Bearer ${user.token}`
+          'authorization' : `Bearer ${user.token}`
         }
       })
       const json = await response.json()
@@ -26,7 +27,7 @@ const Home = () => {
     if (user) {
       fetchInterviews()
     }
-  }, [dispatch])
+  }, [dispatch, user])
 
   if (!interviews) {
     return <h1>Loading....</h1>
