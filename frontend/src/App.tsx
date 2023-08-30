@@ -1,16 +1,17 @@
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 // pages & components
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
-import Signup from './pages/Signup';
-import Login from './pages/Login';
+// import Home from './pages/Home'
+// import Navbar from './components/Navbar'
+// import Signup from './pages/Signup';
+// import Login from './pages/Login';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar />
         <div className="pages">
           <Routes>
             <Route
@@ -26,7 +27,8 @@ function App() {
               element={<Login />}
             />
           </Routes>
-        </div>
+        </div> */}
+        <h1>Hello world</h1>
       </BrowserRouter>
     </div>
   );

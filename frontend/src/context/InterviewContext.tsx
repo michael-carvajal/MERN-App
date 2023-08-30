@@ -1,8 +1,8 @@
 import { createContext, useReducer } from 'react'
 
-export const InterviewContext = createContext()
+export const InterviewContext = createContext({})
 
-export const interviewsReducer = (state, action) => {
+export const interviewsReducer = (state: object, action: object) => {
   switch (action.type) {
     case 'SET_INTERVIEWS':
       return {
@@ -21,7 +21,7 @@ export const interviewsReducer = (state, action) => {
   }
 }
 
-export const InterviewContextProvider = ({ children }) => {
+export const InterviewContextProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(interviewsReducer, {
     interviews: null
   })

@@ -1,11 +1,9 @@
-'use client'
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { InterviewContextProvider } from './context/InterviewContext'
-import { AuthContextProvider } from './context/AuthContext';
+import { InterviewContextProvider } from './context/InterviewContext.js'
+import { AuthContextProvider } from './context/AuthContext.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
