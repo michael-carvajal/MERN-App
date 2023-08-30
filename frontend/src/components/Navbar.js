@@ -17,6 +17,9 @@ const Navbar = () => {
         </Link>
         <nav>
       { user &&  <div>
+           <Link to="/new/interview">
+            <h1>Publish +</h1>
+          </Link>
         {user.email}
         <button className='logout' onClick={handleLogout}>Log out</button>
         </div>}

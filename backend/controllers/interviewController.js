@@ -5,6 +5,7 @@ const User = require('../models/userModel');
 
 const postInterview = async (req, res) => {
     try {
+        console.log(req.body);
         const newInterview = await Interview.create({ ...req.body })
         console.log(newInterview);
         const author = await User.findById(newInterview.authorId)
