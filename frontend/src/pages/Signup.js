@@ -20,7 +20,6 @@ export default function Signup() {
         console.log(email, password);
         signup(email, password)
     }
-    console.log(error, isLoading);
     return (
         <form className="signup" onSubmit={handleSubmit}>
             <h3>Sign up</h3>

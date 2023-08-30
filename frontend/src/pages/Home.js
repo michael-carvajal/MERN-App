@@ -11,7 +11,6 @@ const Home = () => {
   const {user} = useAuthContext()
 
   useEffect(() => {
-    console.log('inside use effect');
     const fetchInterviews = async () => {
       const response = await fetch('/api/interview', {
         headers: {

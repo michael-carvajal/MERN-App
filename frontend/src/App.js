@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import InterviewForm from './pages/InterviewForm';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
             <Route
               path="/login"
               element={<Login />}
+            />
+            <Route
+              path="/new/interview"
+              element={<InterviewForm />}
             />
           </Routes>
         </div>
