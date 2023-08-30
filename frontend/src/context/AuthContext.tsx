@@ -1,20 +1,20 @@
 import React, { Dispatch, ReactNode, createContext, useEffect, useReducer } from 'react';
 
-interface User {
+export interface User {
     _id: string,
-    //
+    email: string
 }
 
 interface AppState {
     user: User | null
 }
 
-interface Login {
+export interface Login {
     type: 'LOGIN',
     payload: User
 }
 
-interface Logout {
+export interface Logout {
     type: 'LOGOUT'
 }
 
