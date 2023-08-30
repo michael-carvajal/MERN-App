@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useInterviewsContext } from '../hooks/useInterviewsContext';
-import { interviewsReducer } from '../context/InterviewContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 const InterviewForm = () => {
     const [interviewData, setInterviewData] = useState({
         interviewer: '',
-        authorId: '',
+
         interviewee: '',
         content: '',
         title: '',
@@ -32,7 +31,7 @@ const InterviewForm = () => {
                 headers: {
                     'Content-Type': 'application/json',
             'Authorization': `Bearer ${user.token}`    },
-                body: JSON.stringify(interviewsReducer)
+                body: JSON.stringify({...interviewData, authorId: user._id})
             })
 
             const data = await response.json();
@@ -56,16 +55,7 @@ const InterviewForm = () => {
                     required
                 />
             </div>
-            <div>
-                <label>Author ID:</label>
-                <input
-                    type="text"
-                    name="authorId"
-                    value={interviewData.authorId}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
+
             <div>
                 <label>Interviewee:</label>
                 <input
