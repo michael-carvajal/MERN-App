@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useInterviewsContext } from '../hooks/useInterviewsContext';
+import { interviewsReducer } from '../context/InterviewContext';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const InterviewForm = () => {
     const [interviewData, setInterviewData] = useState({
@@ -9,7 +12,8 @@ const InterviewForm = () => {
         title: '',
         date: ''
     });
-
+    const {user} = useAuthContext()
+    const { dispatch } = useInterviewsContext();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setInterviewData((prevData) => ({
@@ -18,9 +22,25 @@ const InterviewForm = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // You can perform any necessary actions with interviewData, like sending it to an API
+        // You can perform any necessary actionsd with interviewData, like sending it to an API
+        console.log('helloeoeoeoeoeoeoe');
+        try {
+            const response = await fetch('/api/interview', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+            'Authorization': `Bearer ${user.token}`    },
+                body: JSON.stringify(interviewsReducer)
+            })
+
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+
+        }
+        dispatch({type: 'CREATE_INTERVIEW', payload: interviewData})
         console.log(interviewData);
     };
 
