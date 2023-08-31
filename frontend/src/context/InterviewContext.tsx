@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, Dispatch, ReactNode } from 'react';
 
-interface Interview {
+export interface Interview {
   _id: string,
   title: string
   interviewer: string

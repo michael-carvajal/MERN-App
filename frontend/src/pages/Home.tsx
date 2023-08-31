@@ -2,9 +2,6 @@ import React, { useEffect } from 'react'
 import { useInterviewsContext } from "../hooks/useInterviewsContext"
 import '../styles/Home.css'
 import { useAuthContext } from '../hooks/useAuthContext'
-// components
-// import WorkoutDetails from '../components/WorkoutDetails'
-// import WorkoutForm from '../components/WorkoutForm'
 
 const Home: React.FC = () => {
   const { interviews, dispatch } = useInterviewsContext()
