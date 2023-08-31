@@ -11,8 +11,8 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <header>
-      <div className="container">
+    <header className='w-full flex justify-between p-3'>
+
         <Link to="/">
           <h1>CEO Chronicles</h1>
         </Link>
@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           </div>}
 
           {!user && (
-            <div>
+            <div className='flex gap-2'>
 
               <Link to="/signup">
                 <h1>Sign Up</h1>
@@ -38,7 +38,6 @@ const Navbar: React.FC = () => {
           )}
         </nav>
 
-      </div>
     </header>
   )
 }
