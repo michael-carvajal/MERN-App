@@ -1,4 +1,4 @@
-import { useEffect }from 'react'
+import React, { useEffect } from 'react'
 import { useInterviewsContext } from "../hooks/useInterviewsContext"
 import '../styles/Home.css'
 import { useAuthContext } from '../hooks/useAuthContext'
@@ -6,21 +6,21 @@ import { useAuthContext } from '../hooks/useAuthContext'
 // import WorkoutDetails from '../components/WorkoutDetails'
 // import WorkoutForm from '../components/WorkoutForm'
 
-const Home = () => {
-  const {interviews, dispatch} = useInterviewsContext()
-  const {user} = useAuthContext()
+const Home: React.FC = () => {
+  const { interviews, dispatch } = useInterviewsContext()
+  const { user } = useAuthContext()
 
   useEffect(() => {
     const fetchInterviews = async () => {
       const response = await fetch('/api/interview', {
         headers: {
-          'authorization' : `Bearer ${user.token}`
+          'authorization': `Bearer ${user?.token}`
         }
       })
       const json = await response.json()
 
       if (response.ok) {
-        dispatch({type: 'SET_INTERVIEWS', payload: json})
+        dispatch({ type: 'SET_INTERVIEWS', payload: json })
       }
     }
     if (user) {
@@ -29,7 +29,7 @@ const Home = () => {
   }, [dispatch, user])
 
   if (!interviews) {
-    return <h1>Loading....</h1>
+    return (<h1>Loading....</h1>)
   }
   return (
     <div className="home">
@@ -43,11 +43,11 @@ const Home = () => {
         {interviews?.map((interview, index) => {
           return (
             <div key={`interview-key-${index}`} className='interview'>
-              <p> Title: {interview.title}</p>
-              <p> Interviewer: {interview.interviewer}</p>
-              <p> Interviewee: {interview.interviewee}</p>
-              <p> Date: {interview.date}</p>
-              <pre> Content: <br/> {interview.content}</pre>
+              <p> Title: {interview?.title}</p>
+              <p> Interviewer: {interview?.interviewer}</p>
+              <p> Interviewee: {interview?.interviewee}</p>
+              <p> Date: {interview?.date}</p>
+              <pre> Content: <br /> {interview?.content}</pre>
             </div>
           )
         })}

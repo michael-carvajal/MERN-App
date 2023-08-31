@@ -2,7 +2,8 @@ import React, { Dispatch, ReactNode, createContext, useEffect, useReducer } from
 
 export interface User {
     _id: string,
-    email: string
+    email: string,
+    token: string
 }
 
 interface AppState {
