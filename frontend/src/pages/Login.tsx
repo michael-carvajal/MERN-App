@@ -1,11 +1,12 @@
-import { useState } from "react"
+import React, { ChangeEvent, FormEvent, useState } from "react"
 import useLogin from "../hooks/useLogin";
+import { redirect } from "react-router-dom";
 
-export default function Login() {
-    const [email, setEmail] = useState('');
+const Login: React.FC = () => {
+const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { login, error, isLoading } = useLogin();
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
         if (name === 'email') {
@@ -14,9 +15,10 @@ export default function Login() {
             setPassword(value);
         }
     };
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault()
         await login(email, password)
+        redirect('/')
     }
 
     return (
@@ -41,3 +43,5 @@ export default function Login() {
         </form>
     )
 }
+
+export default Login;

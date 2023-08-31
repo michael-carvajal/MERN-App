@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Signup from './pages/Signup';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 // import InterviewForm from './pages/InterviewForm';
 
 // <div className="pages">
@@ -13,10 +13,6 @@ import Signup from './pages/Signup';
 //     <Route
 //       path="/"
 //       element={<Home />}
-//     />
-//     <Route
-//       path="/login"
-//       element={<Login />}
 //     />
 //     <Route
 //       path="/new/interview"
@@ -35,6 +31,10 @@ const App: React.FC = () => {
             element={<Signup />}
           />
 
+          <Route
+            path="/login"
+            element={<Login />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

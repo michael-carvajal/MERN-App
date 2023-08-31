@@ -3,10 +3,10 @@ import { useAuthContext } from "./useAuthContext";
 
 export default function useLogin() {
     const [error, setError] = useState(null)
-    const [isLoading, setIsLoading] = useState(null)
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const { dispatch } = useAuthContext();
 
-    const login = async (email, password) => {
+    const login = async (email: string, password: string): Promise<void> => {
         setIsLoading(true)
         setError(null)
 
