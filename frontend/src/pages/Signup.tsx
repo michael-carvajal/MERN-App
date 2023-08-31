@@ -40,7 +40,9 @@ const Signup: React.FC = () => {
                 onChange={handleChange}
             />
             <button disabled={isLoading}>Sign Up</button>
-            {error && <div className="error">{error}</div>}
+            {error && typeof error === 'string' ? (
+                <div className="error">{error}</div>
+            ) : null}
         </form>
     );
 };
