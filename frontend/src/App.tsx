@@ -11,7 +11,7 @@ import InterviewForm from './pages/InterviewForm';
 //   </Routes>
 const App: React.FC = () => {
   return (
-    <div className='w-3/4 border-red-300 mx-auto my-0 border-2 bg-slate-700 h-screen
+    <div className='w-3/4 border-red-300 mx-auto my-0 border-2 bg-slate-700 h-fit
     flex-col flex'>
       <BrowserRouter>
         <Navbar />
