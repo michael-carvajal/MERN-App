@@ -6,12 +6,8 @@ import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-// import InterviewForm from './pages/InterviewForm';
+import InterviewForm from './pages/InterviewForm';
 
-//     <Route
-//       path="/new/interview"
-//       element={<InterviewForm />}
-//     />
 //   </Routes>
 const App: React.FC = () => {
   return (
@@ -29,11 +25,15 @@ const App: React.FC = () => {
               path="/login"
               element={<Login />}
             />
-              <Route
-                path="/"
-                element={<Home />}
-              />
-            </Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/new/interview"
+              element={<InterviewForm />}
+            />
+          </Routes>
         </div>
       </BrowserRouter>
     </div>
