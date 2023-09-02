@@ -11,11 +11,11 @@ import InterviewForm from './pages/InterviewForm';
 //   </Routes>
 const App: React.FC = () => {
   return (
-    <div className='w-3/4 border-red-300 mx-auto my-0 border-2 bg-slate-700 h-fit
+    <div className='w-3/4 border-red-300 mx-auto my-0 border-2 bg-slate-700 h-fit min-h-[500px]
     flex-col flex'>
       <BrowserRouter>
         <Navbar />
-        <main className="">
+        <main className=" bg-slate-600 p-6 h-full ">
           <Routes>
             <Route
               path="/signup"

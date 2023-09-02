@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
               <h1>Publish +</h1>
             </Link>
             {user.email}
-            <button className='logout' onClick={handleLogout}>Log out</button>
+          <button className=' text-slate-400 customButton' onClick={handleLogout}>Log out</button>
           </div>}
 
           {!user && (
