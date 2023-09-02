@@ -1,11 +1,13 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import useSignup from "../hooks/useSignup";
+import { useNavigate } from "react-router-dom";
 
 const Signup: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [formErrors, setFormErrors] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const navigate = useNavigate();
 
     const { signup, isLoading, error } = useSignup();
 
@@ -22,7 +24,7 @@ const Signup: React.FC = () => {
     }
     };
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         console.log('handlong submittt');
 
@@ -33,7 +35,8 @@ const Signup: React.FC = () => {
         }
 
         // console.log(email, password);
-        signup(email, password);
+        await signup(email, password);
+        navigate('/')
     };
 
     return (
