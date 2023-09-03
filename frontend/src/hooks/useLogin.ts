@@ -22,6 +22,7 @@ export default function useLogin() {
             setIsLoading(false)
             console.log(json);
             setError(json)
+            return json
         }
 
         if (response.ok) {

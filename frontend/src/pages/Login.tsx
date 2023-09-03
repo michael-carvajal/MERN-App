@@ -19,14 +19,15 @@ const [email, setEmail] = useState('');
     };
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        try {
-            await login(email, password);
-            // At this point, the login function has completed
-            console.log(error);
 
-            if (error !== null) {
-                // Handle the error if it's not null
-                return;
+        try {
+            console.log(isLoading);
+            const loginResponse = await login(email, password);
+            // At this point, the login function has completed
+
+
+            if (typeof loginResponse === 'string') {
+                return 
             }
 
             // Redirect or perform other actions on successful login
@@ -55,6 +56,7 @@ const [email, setEmail] = useState('');
                                     Email
                                 </label>
                                 <input
+                                    required
                                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                     id="email"
                                     type="email"
@@ -70,6 +72,7 @@ const [email, setEmail] = useState('');
                                         Password
                                     </label>
                                     <input
+                                        required
                                         className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                         id="password"
                                         type="password"
@@ -82,16 +85,14 @@ const [email, setEmail] = useState('');
                                 </div>
 
                             </div>
-                            <div className="mb-6 text-center">
                                 <button
                                     className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                                    type="button"
+                                    type="submit"
                                     onClick={handleSubmit}
                                     disabled={isLoading}
                                 >
                                     Register Account
                                 </button>
-                            </div>
                             <hr className="mb-6 border-t" />
                             <div className="text-center">
                                 <a
