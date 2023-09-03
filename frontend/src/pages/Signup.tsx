@@ -35,6 +35,7 @@ const Signup: React.FC = () => {
         }
 
         // console.log(email, password);
+        
         await signup(email, password);
         navigate('/')
     };

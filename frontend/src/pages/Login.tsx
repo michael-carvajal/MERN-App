@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react"
 import useLogin from "../hooks/useLogin";
 import { useNavigate } from "react-router-dom";
+import { log } from "console";
 
 const Login: React.FC = () => {
 const [email, setEmail] = useState('');
@@ -17,10 +18,25 @@ const [email, setEmail] = useState('');
         }
     };
     const handleSubmit = async (e: FormEvent) => {
-        e.preventDefault()
-        await login(email, password)
-        return  navigate('/')
-    }
+        e.preventDefault();
+        try {
+            await login(email, password);
+            // At this point, the login function has completed
+            console.log(error);
+
+            if (error !== null) {
+                // Handle the error if it's not null
+                return;
+            }
+
+            // Redirect or perform other actions on successful login
+            navigate('/');
+        } catch (error) {
+            // Handle any exceptions that might occur during the login process
+            console.error(error);
+        }
+    };
+
 
     return (
         <div className="container mx-auto">
