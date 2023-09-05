@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react"
 import useLogin from "../hooks/useLogin";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { log } from "console";
 
 const Login: React.FC = () => {
@@ -27,7 +27,7 @@ const [email, setEmail] = useState('');
 
 
             if (typeof loginResponse === 'string') {
-                return 
+                return
             }
 
             // Redirect or perform other actions on successful login
@@ -67,7 +67,7 @@ const [email, setEmail] = useState('');
                                 />
                             </div>
                             <div className="mb-4 md:flex md:justify-between">
-                                <div className="mb-4 md:mr-2 md:mb-0">
+                                <div className="mb-4 md:mr-2 md:mb-0 md:w-full">
                                     <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
                                         Password
                                     </label>
@@ -81,7 +81,6 @@ const [email, setEmail] = useState('');
                                         onChange={handleChange}
                                         value={password}
                                     />
-                                    <p className="text-xs italic text-red-500">Please choose a password.</p>
                                 </div>
 
                             </div>
@@ -95,20 +94,12 @@ const [email, setEmail] = useState('');
                                 </button>
                             <hr className="mb-6 border-t" />
                             <div className="text-center">
-                                <a
+                                <Link to='/signup'
                                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                    href="#"
+
                                 >
-                                    Forgot Password?
-                                </a>
-                            </div>
-                            <div className="text-center">
-                                <a
-                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                    href="#"
-                                >
-                                    Already have an account? Login!
-                                </a>
+                                    No account? Sign Up here.
+                                </Link>
                             </div>
                         </form>
                     </div>

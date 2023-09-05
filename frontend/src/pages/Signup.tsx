@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import useSignup from "../hooks/useSignup";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup: React.FC = () => {
     const [email, setEmail] = useState<string>('');
@@ -35,7 +35,7 @@ const Signup: React.FC = () => {
         }
 
         // console.log(email, password);
-        
+
         await signup(email, password);
         navigate('/')
     };
@@ -110,20 +110,12 @@ const Signup: React.FC = () => {
                             </div>
                             <hr className="mb-6 border-t" />
                             <div className="text-center">
-                                <a
+                                <Link to='/login'
                                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                    href="#"
-                                >
-                                    Forgot Password?
-                                </a>
-                            </div>
-                            <div className="text-center">
-                                <a
-                                    className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                    href="#"
+
                                 >
                                     Already have an account? Login!
-                                </a>
+                                </Link>
                             </div>
                         </form>
                     </div>
